@@ -1,0 +1,51 @@
+<div class="bg-planta-login d-flex bg-ags-2">
+    <div class="bg-opacity w-100 d-flex justify-content-end">
+        <div class="bg-container-login d-flex justify-content-center align-items-center">
+            <div class="main-part pb-3">
+                <div class="w-100 text-center p-4">
+                    <div class="img-logo-login m-auto">
+                        <img src="../../../assets/logo-agilesoft.png" />
+                    </div>
+                </div>
+                <div class="p-4 w-100 text-center d-flex justify-content-center">
+                    <form class="login-form" #loginForm="ngForm" (ngSubmit)="login()">
+                        <div class="form-group mb-3">
+                            <div class="input-group custom-input-container custom-input-with-label input-calendar-icon">
+                                <input type="email" email="true" #emailField="ngModel" id="email" class="form-control custom-input pr-2" [(ngModel)]="user" name="user" required />
+                                <label for="user" (click)="forceFocus()" [class.active-label]="(user !== '')">Correo Electrónico</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="input-group custom-input-container custom-input-with-label input-calendar-icon">
+                                <input type="password" #passwordField="ngModel" id="password" class="form-control custom-input pr-2" [(ngModel)]="password" name="password" required />
+                                <label for="password" [class.active-label]="(password !== '')">Contraseña</label>
+                            </div>
+                        </div>
+                        <div class="form-check mb-5 text-left custom-checkbox pl-4">
+                          <input type="checkbox" class="form-check-input custom-control-input" id="saveCache" [(ngModel)]="saveCache" name="saveCache">
+                          <label class="form-check-label checkbox-label-login custom-control-label color-text-login" for="saveCache">Recuérdame</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-custom-orange w-100 mb-3" [disabled]="!loginForm.form.valid || emailField.invalid || passwordField.invalid || loading">
+                            <ng-container *ngIf="!loading">Entrar</ng-container>
+                            <ng-container *ngIf="loading">
+                              <i class="fas fa-circle-notch fa-spin"></i>
+                            </ng-container>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="bottom-part position-absolute text-center">
+                <div>
+                    <img src="../../../assets/images/Logo-tecnoandina-login.svg" class="mb-2" />
+                    <div class="text-container w-100">
+                        <div class="sub-text">2022 Tecnoandina SPA.</div> 
+                        <div class="sub-text">Todos los derechos reservados.</div>
+                    </div>
+                    <p class="mb-3"><span>Versión 1.0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

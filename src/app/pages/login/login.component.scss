@@ -1,0 +1,272 @@
+$color-toque: rgb(20,56,115);
+$color-corporativo: #060606;
+$color-base: #1f446f;
+
+.bg-planta-login{
+    background-size: 150%;
+    min-width: 100vw;
+    min-height:100vh;
+    animation-name: backgroundAni;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+}
+
+.bg-ags-2{
+    background-image: url('../../../assets/agilesoft_spa_logo.jpg');
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+@keyframes backgroundAni {
+    0% {
+        background-size: auto;
+        background-position: center;
+    }
+  50% {
+    background-size: calc(auto + 20%);
+    background-position: right;
+  }
+  100% {
+    background-size: auto;
+    background-position: center;
+  }
+  }
+
+.font-weight-bold{
+    font-weight: 600;
+    color: $color-corporativo;
+}
+
+.color-orange{
+    color: $color-toque;
+}
+.label-recovery{
+    text-align: justify;
+}
+@media screen and (min-width: 1600px) {
+    .bg-planta-login {
+        background-size: cover !important; 
+    }
+}
+
+.bg-opacity{
+    background-color: rgba(68,85,99,.8);
+}
+
+.bg-container-login{
+    background-color: $color-base;
+    max-width:500px; // 628 in mockup
+    width: 100%;
+}
+.img-logo-login{
+    max-width: 336px;
+    width: 100%;
+    text-align: center;
+}
+.img-logo-login img{
+    width: 70%;
+}
+.login-form{
+    max-width: 80%;
+    width: 100%;
+}
+.bottom-part{
+    position: absolute;
+    bottom: 0;
+}
+.bottom-part .sub-text{
+    white-space: nowrap;
+}
+.bottom-part .text-container{
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+.custom-control-label:before{
+    background-color:transparent;
+    border: 2px solid $color-corporativo; 
+    border-radius: 2px;
+}
+.custom-control-label:before, .custom-control-label:after{
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+ //background-color:black;
+ border: unset !important;
+ border-radius: 2px;
+} 
+input[type="checkbox"] {
+    border: 3px solid $color-corporativo !important; 
+    background-color: transparent !important;
+}
+.btn-custom-orange{
+    border-radius: 3px;
+    letter-spacing: -0.5px !important;
+    color: white;
+    background: $color-toque;
+}
+.btn-custom-orange:hover{
+    color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    box-shadow: 0 0 0px 1000px $color-base inset;
+    -webkit-box-shadow: 0 0 0px 1000px $color-base inset;
+    color: $color-corporativo;
+}
+
+.ppa-check-success{
+    color: rgb(239,119,25) !important;
+}
+
+
+
+
+/* add */ 
+.color-text-login{
+    color: $color-corporativo;
+    letter-spacing: -0.5px;
+}
+.custom-input-container i, select, input.form-control{
+    cursor: pointer !important;
+}
+.custom-input-container i{
+    z-index:1
+}
+.custom-input-container select{
+    z-index:2;
+    position:relative;
+}
+.custom-input-with-label{
+  position: relative;
+}
+.custom-input-container input{
+    z-index:2;
+    position:relative;
+}
+@media screen and (max-width:992px){
+    .custom-input-container{
+        margin-bottom:5px !important;
+    }
+}
+.custom-input{
+    padding-right:55px;
+    height:42px !important;
+    background:none !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance:none;
+    border: 1px solid $color-corporativo !important;
+    position: relative;
+    z-index: 1;
+    border-radius: 1px;
+}
+.custom-input:-webkit-autofill, 
+.custom-input:-webkit-autofill:hover, 
+.custom-input:-webkit-autofill:focus, 
+.custom-input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px $color-base inset !important;
+    -webkit-box-shadow: 0 0 0 30px $color-base inset !important;
+}
+
+.custom-input:-webkit-autofill ~ label,
+.custom-input:-webkit-autofill:hover ~ label, 
+.custom-input:-webkit-autofill:focus ~ label, 
+.custom-input:-webkit-autofill:active ~ label{
+    @extend .active-label;
+}
+
+.custom-input-inverse{
+    background: $color-base;
+}
+.pr-12px{
+    padding-right:12px !important;
+}
+.custom-input-container{
+  color: #707172 !important;
+  height:42px !important;
+}
+.custom-input-container i{
+  position: absolute;
+  right: 17px;
+  top: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  display: block;
+  border-left:2px solid #C3C7D1;
+  border-bottom:2px solid #C3C7D1;
+  transform: rotate(-45deg); 
+  transition: all 0.25s ease;
+}
+.custom-input-container.input-calendar-icon i{
+  right: 13px;
+  top: calc(50% - 6.5px);
+  width: auto !important;
+  height: auto !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  transform: none !important;
+  color: #C3C7D1;
+}    
+.custom-input-inverse i{
+    border-left:2px solid $color-corporativo !important;
+    border-bottom:2px solid $color-corporativo !important;
+}
+.custom-input-container:hover i{
+  margin-top: 3px;
+}
+.chevron-bg {
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  border-radius: 0px 6px 6px 0px;
+  background: $color-corporativo;
+}
+.custom-input-inverse .chevron-bg {
+    background: $color-base !important;
+    border-left: 1px solid $color-corporativo;
+    top: -0.5px;
+}
+.custom-input-container label {
+  display: block;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  font-weight: 400;
+  left: 5%;
+  transform: translateY(-50%);
+}
+.custom-input-container input.form-control:focus {
+    color: $color-corporativo !important; 
+}
+.custom-input-container input.form-control:valid{
+  color: $color-corporativo !important; 
+}
+.custom-input-container input.form-control:focus + label {
+  transform: translate(-10% ,-150%) scale(0.75);
+  color: $color-corporativo;
+  background: $color-base;
+  padding-left:5px;
+  padding-right:5px;
+  font-weight: 400;
+}
+.text-transparent-i{
+    color: transparent !important;
+}
+.active-label{
+    transform: translate(-10% ,-150%) scale(0.80) !important;
+    color: $color-corporativo !important;
+    background: $color-base !important;
+    padding-left:5px;
+    padding-right:5px;
+    font-weight: bold;
+}
+.fw-300{
+    font-weight: 300;
+}
