@@ -1,0 +1,21 @@
+<Sidebar>
+    <ng-template>
+        <div class="movies-body p-4">
+            <h3 class="movie-title">{{movieInfo['title']}}</h3>
+            <div class="row mt-4">
+                <div class="col-12 col-sm-auto">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img [src]="baseURL+movieInfo['backdrop_path']" class="movie-header" />
+                    </div>
+                </div>
+                <div class="col-12 col-sm-auto">
+                    <img [src]="baseURL+movieInfo['poster_path']" class="movie-header" />
+                </div>
+                <div class="col-12 col-sm">
+                    <p>{{movieInfo['overview']}}</p>
+                </div>
+            </div>
+            <h3 class="movie-title">Reparto</h3>
+        </div>
+    </ng-template>
+</Sidebar>

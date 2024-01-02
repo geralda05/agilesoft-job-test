@@ -1,0 +1,17 @@
+.movies-body {
+    padding: 20px;
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .picsum-img-wrapper {
+        min-height: 400px;
+        background-size: cover;
+    }
+
+    .movie-pic {
+        height: 200px;
+        width: 100%;
+    }
+}

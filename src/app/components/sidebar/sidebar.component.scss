@@ -1,0 +1,11 @@
+.example-sidenav-container {
+    min-height: calc(100vh - 64px) !important;
+    background-color: rgba(220, 220, 220, .3);
+}
+.user-label {
+    margin-left: auto;
+
+    h2 {
+        margin-right: 5px;
+    }
+}
