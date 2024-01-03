@@ -1,0 +1,19 @@
+.picsum-img-wrapper {
+    min-height: 400px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.movie-pic {
+    height: 200px;
+    width: 100%;
+}
+.bg-opacity {
+    background-color: rgba(1, 1, 1, .6);
+}
+
+@media screen and (max-width: 700px) {
+    .overview-movie {
+        display: none;
+    }
+}

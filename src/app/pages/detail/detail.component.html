@@ -1,33 +1,73 @@
 <Sidebar>
     <ng-template>
         <div class="movies-body p-4">
-            <h3 class="movie-title">{{movieInfo['title']}}</h3>
+            <h3 class="movie-title" data-aos="fade-right">{{movieInfo['title']}}</h3>
             <div class="row mt-4">
-                <div class="col-12 col-sm-auto">
+                <div class="col-12 col-sm-auto pb-4">
                     <div class="d-flex justify-content-center align-items-center">
-                        <img [src]="baseURL+movieInfo['backdrop_path']" class="movie-header" />
+                        <img [src]="baseURL+movieInfo['backdrop_path']" class="movie-header" data-aos="fade-right"/>
                     </div>
                 </div>
-                <div class="col-12 col-sm-auto">
-                    <img [src]="baseURL+movieInfo['poster_path']" class="movie-header" />
+                <div class="col-12 col-sm-auto pb-4">
+                    <img [src]="baseURL+movieInfo['poster_path']" class="movie-header"  data-aos="fade-right" data-aos-delay="500" />
                 </div>
-                <div class="col-12 col-sm">
-                    <p>{{movieInfo['overview']}}</p>
+                <div class="col-12 col-sm pb-4">
+                    <p class="text-justify overview"  data-aos="fade-left" data-aos-delay="1000">{{movieInfo['overview']}}</p>
                 </div>
             </div>
-            <h3 class="movie-title">Reparto</h3>
-            @if (actors) {
-                <ngb-carousel [interval]="1000000000">
-                    <ng-template ngbSlide *ngFor="let item of actors">
-                        <div class="picsum-img-wrapper" [style]="formatSlide(item)">
-                            Hello
-                        </div>
-                        <div class="carousel-caption">
-                            <h3>{{item}}</h3>
-                            <p>{{item}}</p>
-                        </div>
-                    </ng-template>
+
+            <h3 class="movie-title mt-4" data-aos="fade-right">Reparto</h3>
+            @if (actors && !loading && !error) {
+                <ngb-carousel [interval]="2000" data-bs-theme="dark" data-aos="fade-left">
+                    <ng-container *ngFor="let item of actors; index as i">
+                        @if (handleActors(i)) {
+                            <ng-template ngbSlide>
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-12 col-sm-6 col-md-4 pb-5">
+                                        <div class="card" data-aos="flip-left">
+                                            <div class="picsum-img-wrapper" [style]="formatSlide(item)">
+
+                                            </div>
+                                            <div class="p-3">
+                                                <p>{{item.name}}</p>                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (actors[i+1] && getWidth()) {
+                                        <div class="col-12 col-sm-6 col-md-4 pb-5">
+                                            <div class="card" data-aos="flip-left">
+                                                <div class="picsum-img-wrapper" [style]="formatSlide(actors[i+1])">
+    
+                                                </div>
+                                                <div class="p-3">
+                                                    <p>{{actors[i+1].name}}</p>                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (actors[i+2] && getWidth()) {
+                                        <div class="col-12 col-sm-6 col-md-4 pb-5">
+                                            <div class="card" data-aos="flip-left">
+                                                <div class="picsum-img-wrapper" [style]="formatSlide(actors[i+2])">
+    
+                                                </div>
+                                                <div class="p-3">
+                                                    <p>{{actors[i+2].name}}</p>                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </ng-template>
+                        }
+                    </ng-container>
                 </ngb-carousel>
+            }
+            @if (loading) {
+                <loading-message message="Cargando películas"></loading-message>
+            }
+            @if (error) {
+                <warning-message message="Error al cargar información de películas"></warning-message>
             }
         </div>
     </ng-template>

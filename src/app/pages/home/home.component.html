@@ -1,33 +1,11 @@
 <Sidebar>
     <ng-template>
         <div class="movies-body">
-            <h3 (click)="consoleLOGG(images)">Películas en Estreno</h3>
-            @if (images) {
-                <ngb-carousel [interval]="1000000000" (slid)="testEvent($event)">
-                    <ng-template ngbSlide *ngFor="let item of images">
-                        <div class="picsum-img-wrapper" [style]="formatSlide(item)" [routerLink]="'/detail/'+item.id" routerLinkActive="active" [state]="{ movie: item, baseURL: baseURL }">
 
-                        </div>
-                        <div class="carousel-caption">
-                            <h3>{{item.original_title}}</h3>
-                            <p>{{item.overview}}</p>
-                        </div>
-                    </ng-template>
-                </ngb-carousel>
-            }
-            <h3 class="mt-4" (click)="consoleLOGG(images)">Películas más populares</h3>
-            @if (popularMovies) {
-                <div class="row" infiniteScroll [infiniteScrollDistance]="2"  (scrolled)="onScroll()">
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3 d-flex" *ngFor="let item of popularMovies">
-                        <div class="card w-100">
-                            <div class="movie-pic" [style]="formatSlide(item)"></div>
-                            <div class="card-body">
-                                <h3>{{item.original_title}}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
+            <new-movies-carousel></new-movies-carousel>
+
+            <popular-movies-list></popular-movies-list>
+            
         </div>
     </ng-template>
 </Sidebar>

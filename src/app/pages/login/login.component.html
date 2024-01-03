@@ -1,62 +1,58 @@
-<div class="bg-agile-login d-flex bg-agile-2">
-    <div class="bg-opacity w-100 d-flex justify-content-end">
-        <div class="bg-container-login d-flex justify-content-center align-items-center">
-            <div class="main-part pb-3">
-                
-                
-                <div class="w-100 text-center p-4">
-                    <div class="img-logo-login m-auto">
-                        <img src="../../../assets/logo-light.jpg" />
-                    </div>
-                </div>
-                
-                
-                <div class="p-4 w-100 text-center d-flex justify-content-center">
-                
-                
-                    <form autocomplete="off" class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
-                
-                
-                        <mat-form-field class="example-full-width light-input">
-                            <mat-label>Email</mat-label>
-                            <input type="text" autocomplete="false" name="agile-i" matInput formControlName="user" [errorStateMatcher]="matcher"
-                                   placeholder="Ex. pat@example.com">
-                            @if (loginForm.get('user')?.hasError('email') && !loginForm.get('user')?.hasError('required')) {
-                              <mat-error>Please enter a valid email address</mat-error>
-                            }
-                            @if (loginForm.get('user')?.hasError('required')) {
-                              <mat-error>Email is <strong>required</strong></mat-error>
-                            }
-                        </mat-form-field>
-                
-                
-                        <mat-form-field class="example-full-width light-input mt-2">
-                            <mat-label>Password</mat-label>
-                            <input type="password" autocomplete="false" name="agile-i2" matInput formControlName="password" [errorStateMatcher]="matcher"
-                                   placeholder="Ex. 1234567">
-                            @if (!loginForm.get('password')?.hasError('required')) {
-                              <mat-error>Please enter a valid password</mat-error>
-                            }
-                            @if (loginForm.get('password')?.hasError('required')) {
-                              <mat-error>Password is <strong>required</strong></mat-error>
-                            }
-                        </mat-form-field>
+<div class="bg-agile-login">
+    <div class="opacity-layer">
+        <div class="bg-container-login">
+            <div class="pb-3">  
 
-                        <button mat-raised-button type="submit" color="primary" class="w-100 mt-3" [disabled]="!loginForm.valid">
-                            <ng-container *ngIf="!loading">Entrar</ng-container>
-                            <ng-container *ngIf="loading">
-                              <i class="fas fa-circle-notch fa-spin"></i>
-                            </ng-container>
-                        </button>
-                    </form>
+
+
+                <div class="w-100 text-center p-4">
+                    <img src="../../../assets/logo-light.jpg" class="img-logo-login m-auto" />
                 </div>
-            </div>
+
+
+                <form autocomplete="off" class="login-form p-4" [formGroup]="loginForm" (ngSubmit)="login()">
+            
+            
+                    <mat-form-field class="w-100 light-input">
+                        <mat-label>User</mat-label>
+                        <input type="text" autocomplete="false" name="agile-i" matInput formControlName="user" [errorStateMatcher]="matcher"
+                                placeholder="Ex. pat@example.com">
+                        @if (!loginForm.get('user')?.hasError('required')) {
+                            <mat-error>Please enter a valid user</mat-error>
+                        }
+                        @if (loginForm.get('user')?.hasError('required')) {
+                            <mat-error>User is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+            
+            
+                    <mat-form-field class="w-100 light-input mt-2">
+                        <mat-label>Password</mat-label>
+                        <input type="password" autocomplete="false" name="agile-i2" matInput formControlName="password" [errorStateMatcher]="matcher"
+                                placeholder="Ex. 1234567">
+                        @if (!loginForm.get('password')?.hasError('required')) {
+                            <mat-error>Please enter a valid password</mat-error>
+                        }
+                        @if (loginForm.get('password')?.hasError('required')) {
+                            <mat-error>Password is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+
+                    <button mat-raised-button type="submit" color="primary" class="w-100 mt-3" [disabled]="!loginForm.valid">
+                        <ng-container *ngIf="!loading">Entrar</ng-container>
+                        <ng-container *ngIf="loading">
+                            <div class="spinner-border text-light spinner-border-sm" role="status">
+                            </div>
+                        </ng-container>
+                    </button>
+                </form>
+             </div>
 
 
             <div class="bottom-part position-absolute text-center">
                 <div>
                     <div class="text-container w-100">
-                        <div class="sub-text">2023 © AgileSoft Job Test.</div> 
+                        <div class="sub-text">2023 © AgileSoft Job Test. </div> 
                         <div class="sub-text">Todos los derechos reservados.</div>
                     </div>
                     <p class="mb-3"><span>Versión 1.0</span></p>

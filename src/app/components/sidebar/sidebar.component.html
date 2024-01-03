@@ -3,7 +3,7 @@
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">AgileSoft Movies App</h1>
       <div class="d-flex justify-content-center align-items-center user-label">
-        <h2 class="mb-0 pr-2">Hola, {{authService.fullName}}</h2>
+        <h2 class="mb-0 pr-2 user-logout" (click)="authService.logout()">Hola, {{authService.fullName}}</h2>
         <mat-icon aria-hidden="false" fontIcon="account_circle"></mat-icon>
       </div>
 

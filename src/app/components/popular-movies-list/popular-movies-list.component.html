@@ -1,0 +1,21 @@
+<h3 class="mt-5 home-title" data-aos="fade-right">Películas más populares</h3>
+
+@if (popularMovies && !loading && !error) {
+    <div class="row" infiniteScroll [infiniteScrollDistance]="2"  (scrolled)="onScroll()">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3 d-flex" *ngFor="let item of popularMovies">
+            <div class="card movie-container" data-aos="fade-right" [routerLink]="'/detail/'+item.id" routerLinkActive="active" [state]="{ movie: item, baseURL: baseURL }">
+                <div class="movie-pic" [style]="formatSlide(item)"></div>
+                <div class="card-body">
+                    <h4>{{item.original_title}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (loading) {
+    <loading-message message="Cargando películas"></loading-message>
+}
+@if (error) {
+    <warning-message message="Error al cargar información de películas"></warning-message>
+}

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule, UntypedFormBuilder, Validators, ReactiveFormsModule, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
-import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -8,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
   constructor(
     public route: ActivatedRoute,
     private auth: AuthService,
-    private router: Router,
     private formBuilder: UntypedFormBuilder
   ) {}
 

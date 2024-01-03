@@ -2,6 +2,32 @@
     min-height: calc(100vh - 64px) !important;
     background-color: rgba(220, 220, 220, .3);
 }
+::ng-deep .example-toolbar {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+    font-family: 'Poppins', sans-serif !important;
+
+    h1, h2 {
+        font-family: 'Poppins', sans-serif !important;
+    }
+
+    h1 {
+        font-size: 17px !important;
+    }
+
+    h2 {
+        font-size: 15px !important;
+    }
+
+    .user-logout {
+        cursor: pointer;
+    
+        @media screen and (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    
+}
 .user-label {
     margin-left: auto;
 

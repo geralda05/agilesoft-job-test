@@ -2,10 +2,6 @@
 $color-base: white;
 $color-opacity: rgba(68,85,99,.8);
 
-.example-full-width {
-    width: 100%;
-}
-
 .bg-agile-login{
     background-size: 150%;
     min-width: 100vw;
@@ -13,9 +9,7 @@ $color-opacity: rgba(68,85,99,.8);
     animation-name: backgroundAni;
     animation-duration: 25s;
     animation-iteration-count: infinite;
-}
-
-.bg-agile-2{
+    display: flex;
     background-image: url('../../../assets/agilesoft_spa_logo.jpg');
 }
 
@@ -41,26 +35,33 @@ $color-opacity: rgba(68,85,99,.8);
 }
 
 
-.bg-opacity{
+.opacity-layer{
     background-color: $color-opacity;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .bg-container-login{
     background-color: $color-base;
     max-width:500px; 
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .img-logo-login{
     max-width: 336px;
     width: 100%;
     text-align: center;
-}
-.img-logo-login img{
     width: 70%;
 }
+
 .login-form{
-    max-width: 80%;
+    padding-left: 70px !important;
+    padding-right: 70px !important;
     width: 100%;
+
 }
 .bottom-part{
     position: absolute;

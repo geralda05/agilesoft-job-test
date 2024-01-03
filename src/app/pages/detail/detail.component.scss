@@ -1,11 +1,17 @@
 .movie-title {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif !important;
+    letter-spacing: 0.1px;
 }
 .movie-header{
-    max-height: 400px;
+    height: 400px;
 }
 .picsum-img-wrapper {
     min-height: 400px;
     background-size: cover;
+}
+.overview {
+    text-align: justify;
+    font-size: 17px;
 }

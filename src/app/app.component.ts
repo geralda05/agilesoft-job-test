@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'agile-soft-jobtest';
+
+  ngOnInit() {
+    AOS.init();
+    window.addEventListener('load', AOS.refresh)
+  }
 }

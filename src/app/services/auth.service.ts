@@ -28,8 +28,15 @@ export class AuthService {
     }
   }
 
+  async logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+    this.token = null;
+  }
+
   async login(user:string, pass:string) {
     try {
+      localStorage.clear();
       const response = await axios({
         method: 'post',
         url: environment.LOGIN,
@@ -44,18 +51,22 @@ export class AuthService {
         });
         throw 'error';
       } else {
+
         try {
+        
           const data = response.data.data;
           this.token = data.payload.token;
+
           localStorage.setItem('agile-soft-token-session', data.payload.token);
           localStorage.setItem('agile-soft-token-refresh', data.payload.refresh_token);
-          localStorage.setItem('agile-soft-user', JSON.stringify(data.user));
-          console.log(data.user);
+          localStorage.setItem('agile-soft-user-name', `${data.user.firstName} ${data.user.lastName}`);
+
           this.fullName = `${data.user.firstName} ${data.user.lastName}`;
 
           this.router.navigate(['/home']);
 
           return 'success';
+
         } catch {
           Swal.fire({
             icon: 'error',
@@ -118,7 +129,6 @@ export class AuthService {
       this.token = response.data.data.payload.token;
       console.log('token expired: ', response.data);
       localStorage.setItem('agile-soft-token-session', response.data.data.payload.token);
-      localStorage.setItem('agile-soft-user', JSON.stringify(response.data.payload.user));
       return true
     } else {
       return false

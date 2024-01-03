@@ -1,0 +1,16 @@
+
+.movie-container {
+    cursor: pointer;
+    width: 100%;
+
+    .movie-pic {
+        height: 200px;
+        width: 100%;
+    }
+
+    h4 {
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+    }
+}

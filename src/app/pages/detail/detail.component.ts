@@ -4,11 +4,13 @@ import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { WarningMessageComponent } from '../../components/warning-message/warning-message.component';
+import { LoadingMessageComponent } from '../../components/loading-message/loading-message.component';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [CommonModule, NgbCarouselModule, SidebarComponent],
+  imports: [CommonModule, NgbCarouselModule, SidebarComponent, WarningMessageComponent, LoadingMessageComponent],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss'
 })
@@ -22,6 +24,8 @@ export class DetailComponent {
   public baseURL: string = '';
   public actors : any = [];
   public actorsBase : string = '';
+  public loading = false;
+  public error = false;
 
   receiveParameters() {
     const params = this.router.getCurrentNavigation()?.extras.state;
@@ -39,6 +43,14 @@ export class DetailComponent {
     }
   }
 
+  public handleActors(index: number) {
+    return  window.innerWidth < 700 ? true : (index === 0 || ( (index) % 3 ) == 0)
+  }
+
+  public getWidth () {
+    return window.innerWidth > 700
+  }
+
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('idMovie');
     if(typeof id === 'string'){
@@ -48,13 +60,17 @@ export class DetailComponent {
     this.getDetailMovie()
   }
 
+
   public async getDetailMovie() {
-    const response = await this.data.getDetailMovie(this.movieId)
-    if(response.data) {
+    try {
+      this.loading = true;
+      const response = await this.data.getDetailMovie(this.movieId)
       this.actors = response.data.data;
-      console.log(this.actors);
       this.actorsBase = response.data.imageBaseUrl;
+      this.loading = false;
+    } catch (error) {
+      this.loading = false;
+      this.error = true;
     }
-    console.log(response.data);
   }
 }

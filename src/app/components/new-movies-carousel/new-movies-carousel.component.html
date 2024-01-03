@@ -1,0 +1,20 @@
+<h3 class="home-title" data-aos="fade-right">Películas en Estreno</h3>
+@if (images && !loading && !error) {
+    <ngb-carousel [interval]="1000000000" (slid)="testEvent($event)" data-aos="fade-right">
+        <ng-template ngbSlide *ngFor="let item of images">
+            <div class="picsum-img-wrapper d-flex" [style]="formatSlide(item)" [routerLink]="'/detail/'+item.id" routerLinkActive="active" [state]="{ movie: item, baseURL: baseURL }">
+                <div class="bg-opacity w-100"></div>
+            </div>
+            <div class="carousel-caption">
+                <h3>{{item.original_title}}</h3>
+                <p class="overview-movie">{{item.overview}}</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+}
+@if (loading) {
+    <loading-message message="Cargando películas"></loading-message>
+}
+@if (error) {
+    <warning-message message="Error al cargar información de películas"></warning-message>
+}
