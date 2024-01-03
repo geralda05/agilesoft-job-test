@@ -27,7 +27,7 @@ export class NewMoviesCarouselComponent {
   }
 
   public testEvent(event:any){
-    if(event.current === `ngb-slide-${this.images.length-2}`){
+    if(event.current === `ngb-slide-${this.images.length-1}`){
       this.getNewMovies()
     }
   }

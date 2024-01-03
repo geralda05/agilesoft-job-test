@@ -18,7 +18,7 @@
 
             <h3 class="movie-title mt-4" data-aos="fade-right">Reparto</h3>
             @if (actors && !loading && !error) {
-                <ngb-carousel [interval]="2000" data-bs-theme="dark" data-aos="fade-left">
+                <ngb-carousel [interval]="2000" data-bs-theme="dark" data-aos="fade-left" data-aos-delay="1000">
                     <ng-container *ngFor="let item of actors; index as i">
                         @if (handleActors(i)) {
                             <ng-template ngbSlide>
