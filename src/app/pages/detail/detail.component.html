@@ -16,6 +16,19 @@
                 </div>
             </div>
             <h3 class="movie-title">Reparto</h3>
+            @if (actors) {
+                <ngb-carousel [interval]="1000000000">
+                    <ng-template ngbSlide *ngFor="let item of actors">
+                        <div class="picsum-img-wrapper" [style]="formatSlide(item)">
+                            Hello
+                        </div>
+                        <div class="carousel-caption">
+                            <h3>{{item}}</h3>
+                            <p>{{item}}</p>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            }
         </div>
     </ng-template>
 </Sidebar>
