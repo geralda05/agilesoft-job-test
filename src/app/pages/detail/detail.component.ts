@@ -52,9 +52,9 @@ export class DetailComponent {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('idMovie');
-    if(typeof id === 'string'){
-      this.movieId = id;
+    const $id = this.route.snapshot.paramMap.get('idMovie');
+    if(typeof $id === 'string'){
+      this.movieId = $id;
     }
     
     this.getDetailMovie()
